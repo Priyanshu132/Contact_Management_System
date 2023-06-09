@@ -28,8 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         (request, response, ex) -> {
                             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
                         })
-                .and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests().anyRequest().authenticated();
     }
 }
